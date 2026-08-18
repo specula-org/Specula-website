@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Specula finds deep bugs in concurrent and distributed system code with coding agents and TLA+ model checking."
+    />
+    <meta name="theme-color" content="#07121e" />
+    <meta property="og:title" content="Specula — Find deep concurrency bugs" />
+    <meta
+      property="og:description"
+      content="From system code to a model-checked, code-level reproduced bug."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://specula.info/" />
+    <meta name="twitter:card" content="summary" />
+    <title>Specula — Find deep concurrency bugs</title>
+    <link rel="icon" href="assets/specula-mark.png" type="image/png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Specula home">
+          <img src="assets/specula-wordmark.png" alt="Specula" />
+        </a>
+        <nav aria-label="Primary navigation">
+          <a href="https://github.com/specula-org/Specula">GitHub</a>
+          <a
+            class="nav-cta"
+            href="https://github.com/specula-org/Specula/blob/main/docs/Usage.md"
+          >
+            Get started
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <div class="status-pill">
+              <span aria-hidden="true"></span>
+              Full website coming soon
+            </div>
+
+            <h1 id="hero-title">Find deep concurrency bugs before they ship.</h1>
+            <p class="hero-lede">
+              Specula turns system code into TLA+ models, explores the
+              interleavings tests miss, and reproduces real failures in the
+              implementation.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="https://github.com/specula-org/Specula">
+                Explore Specula
+                <span aria-hidden="true">&#8594;</span>
+              </a>
+              <a
+                class="button button-secondary"
+                href="https://github.com/specula-org/Specula/blob/main/docs/Usage.md"
+              >
+                Read the usage guide
+              </a>
+            </div>
+          </div>
+
+          <div class="workflow" aria-label="Specula workflow">
+            <div class="workflow-topline">
+              <span>specula run</span>
+              <span class="run-state"><i aria-hidden="true"></i> complete</span>
+            </div>
+
+            <ol>
+              <li>
+                <span class="step-number">01</span>
+                <div>
+                  <span class="step-label">Source code</span>
+                  <strong>Understand the system</strong>
+                </div>
+              </li>
+              <li>
+                <span class="step-number">02</span>
+                <div>
+                  <span class="step-label">Formal model</span>
+                  <strong>Generate a TLA+ spec</strong>
+                </div>
+              </li>
+              <li class="step-alert">
+                <span class="step-number">03</span>
+                <div>
+                  <span class="step-label">Model checking</span>
+                  <strong>Find a counterexample</strong>
+                </div>
+              </li>
+              <li class="step-success">
+                <span class="step-number">04</span>
+                <div>
+                  <span class="step-label">Code-level validation</span>
+                  <strong>Reproduce the bug</strong>
+                </div>
+              </li>
+            </ol>
+
+            <div class="workflow-result">
+              <span class="result-icon" aria-hidden="true">&#10003;</span>
+              <div>
+                <span>Confirmed in the implementation</span>
+                <strong>Failure reproduced with a concrete schedule</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="promise" aria-labelledby="promise-title">
+          <p>Built for concurrent and distributed systems</p>
+          <h2 id="promise-title">
+            Formal verification that ends with an actionable result.
+          </h2>
+          <a href="https://github.com/specula-org/Specula#auto-mode">
+            See how Specula works <span aria-hidden="true">&#8594;</span>
+          </a>
+        </section>
+      </main>
+
+      <footer>
+        <span>Specula</span>
+        <span>Open source under the Apache-2.0 license</span>
+      </footer>
+    </div>
+  </body>
+</html>
