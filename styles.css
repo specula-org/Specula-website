@@ -284,6 +284,10 @@ nav a:hover {
   max-width: 680px;
 }
 
+.hero-copy > h1 {
+  margin-top: 0;
+}
+
 .eyebrow {
   display: flex;
   gap: 10px;
