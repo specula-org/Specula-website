@@ -50,6 +50,24 @@
   const tabs = [...document.querySelectorAll("[data-command-tab]")];
   const panels = [...document.querySelectorAll("[data-command-panel]")];
 
+  const copyText = async (value) => {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(value);
+      return;
+    }
+
+    const fallback = document.createElement("textarea");
+    fallback.value = value;
+    fallback.setAttribute("readonly", "");
+    fallback.style.position = "fixed";
+    fallback.style.opacity = "0";
+    document.body.appendChild(fallback);
+    fallback.select();
+    const copied = document.execCommand("copy");
+    fallback.remove();
+    if (!copied) throw new Error("Copy unavailable");
+  };
+
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       const selected = tab.dataset.commandTab;
@@ -76,7 +94,23 @@
     button.addEventListener("click", async () => {
       const previous = button.innerHTML;
       try {
-        await navigator.clipboard.writeText(button.dataset.copy ?? "");
+        await copyText(button.dataset.copy ?? "");
+        button.textContent = "Copied ✓";
+      } catch (_) {
+        button.textContent = "Copy failed";
+      }
+      window.setTimeout(() => {
+        button.innerHTML = previous;
+      }, 1600);
+    });
+  });
+
+  document.querySelectorAll("[data-copy-target]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const previous = button.innerHTML;
+      const source = document.querySelector(button.dataset.copyTarget ?? "");
+      try {
+        await copyText(source?.textContent?.trim() ?? "");
         button.textContent = "Copied ✓";
       } catch (_) {
         button.textContent = "Copy failed";
