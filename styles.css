@@ -313,15 +313,30 @@ p {
 h1 {
   max-width: 690px;
   margin: 26px 0 25px;
-  font-size: clamp(3.65rem, 5.65vw, 6.15rem);
+  font-size: clamp(3.35rem, 4.7vw, 5rem);
   font-weight: 740;
-  line-height: 0.96;
-  letter-spacing: -0.066em;
+  line-height: 0.97;
+  letter-spacing: -0.058em;
 }
 
 h1 span {
   display: block;
+}
+
+.hero-title-main {
+  color: var(--text);
+}
+
+.hero-title-accent {
+  margin-top: 0.14em;
   color: var(--blue-bright);
+  font-size: 0.83em;
+  line-height: 1.02;
+}
+
+.hero-title-accent em {
+  color: var(--orange-bright);
+  font-style: normal;
 }
 
 .hero-lede {
@@ -654,6 +669,113 @@ h1 span {
 
 .float-card-bug span {
   color: var(--orange);
+}
+
+/* Specula's hero illustration replaces the earlier terminal mockup. */
+.hero-visual {
+  display: grid;
+  width: min(100%, 650px);
+  min-width: 0;
+  margin: 0;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hero-visual::before {
+  position: absolute;
+  inset: 13% 9% 8% 11%;
+  z-index: -2;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 48%, var(--blue-faint), transparent 62%),
+    color-mix(in srgb, var(--surface) 42%, transparent);
+}
+
+.hero-visual::after {
+  position: absolute;
+  inset: 20% 16% 15% 18%;
+  z-index: -1;
+  border: 1px dashed color-mix(in srgb, var(--blue) 22%, transparent);
+  border-radius: 50%;
+  content: "";
+  animation: orbit-spin 36s linear infinite;
+}
+
+.hero-visual > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter:
+    drop-shadow(0 24px 34px rgba(0, 0, 0, 0.2))
+    drop-shadow(0 0 22px color-mix(in srgb, var(--blue) 8%, transparent));
+}
+
+.hero-visual .visual-glow {
+  inset: 18% 6% 10% 10%;
+  z-index: -3;
+  border-radius: 45%;
+  background: radial-gradient(circle at 52% 46%, rgba(58, 185, 246, 0.2), transparent 64%);
+  filter: blur(30px);
+}
+
+.illustration-label {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.illustration-label span {
+  color: var(--orange);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.5rem;
+}
+
+.illustration-label strong {
+  color: var(--text-soft);
+  font-size: 0.62rem;
+  font-weight: 680;
+}
+
+.label-code {
+  top: 9%;
+  left: 0;
+}
+
+.label-spec {
+  bottom: 12%;
+  left: 28%;
+}
+
+.label-check {
+  top: 3%;
+  right: 0;
+}
+
+.label-bug {
+  right: 1%;
+  bottom: 2%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .signal-strip {
@@ -1471,6 +1593,12 @@ h1 span {
   }
 }
 
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 1100px) {
   nav a:nth-child(-n + 2) {
     display: none;
@@ -1565,7 +1693,7 @@ h1 span {
   }
 
   h1 {
-    font-size: clamp(3.1rem, 15.5vw, 5rem);
+    font-size: clamp(3rem, 14.5vw, 4.6rem);
   }
 
   .hero-lede {
@@ -1575,6 +1703,29 @@ h1 span {
   .hero-actions,
   .hero-actions .button {
     width: 100%;
+  }
+
+  .hero-visual {
+    width: calc(100% + 12px);
+    margin-left: -6px;
+  }
+
+  .illustration-label {
+    padding: 6px 8px;
+  }
+
+  .illustration-label strong {
+    font-size: 0.55rem;
+  }
+
+  .label-spec {
+    bottom: 9%;
+    left: 20%;
+  }
+
+  .label-bug {
+    right: 0;
+    bottom: 0;
   }
 
   .float-card {

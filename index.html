@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Specula uses coding agents and TLA+ model checking to find and reproduce deep bugs in concurrent and distributed systems."
+      content="Specula generates formal TLA+ specifications for real system code, model-checks them, and reproduces deep bugs in the implementation."
     />
     <meta name="theme-color" content="#050d16" />
-    <meta property="og:title" content="Specula — Find deep concurrency bugs" />
+    <meta property="og:title" content="Specula — Generate formal specifications. Find deep bugs." />
     <meta
       property="og:description"
-      content="Turn system code into model-checked, code-level reproduced bugs."
+      content="Generate and validate TLA+ specifications for your system, then uncover and reproduce deep bugs."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://specula.info/" />
@@ -23,13 +23,13 @@
       content="Specula turns code into a TLA+ model, finds a counterexample, and confirms a bug."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Specula — Find deep concurrency bugs" />
+    <meta name="twitter:title" content="Specula — Generate formal specifications. Find deep bugs." />
     <meta
       name="twitter:description"
-      content="Turn system code into model-checked, code-level reproduced bugs."
+      content="Generate and validate TLA+ specifications for your system, then uncover and reproduce deep bugs."
     />
     <meta name="twitter:image" content="https://specula.info/assets/og.png" />
-    <title>Specula — Find deep concurrency bugs</title>
+    <title>Specula — Generate formal specifications. Find deep bugs.</title>
     <link rel="icon" href="assets/specula-mark.png" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
     <script>
@@ -81,13 +81,13 @@
         <div class="hero-copy reveal">
           <p class="eyebrow"><span></span> Open source · Apache 2.0</p>
           <h1 id="hero-title">
-            Find the concurrency bugs
-            <span>your tests can’t reach.</span>
+            <span class="hero-title-main">Generate formal specifications for your system.</span>
+            <span class="hero-title-accent">Find deep, complex <em>bugs.</em></span>
           </h1>
           <p class="hero-lede">
-            Specula uses coding agents to turn real system code into TLA+ models,
-            explores the interleavings tests miss, and reproduces violations in
-            the implementation.
+            Specula uses coding agents to derive TLA+ specifications from real
+            system code, validates them against implementation traces, and
+            model-checks them to uncover violations it can reproduce in code.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#get-started">
@@ -103,77 +103,35 @@
           </p>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Example Specula verification run">
+        <figure class="hero-visual reveal" aria-labelledby="hero-figure-caption">
           <div class="visual-glow"></div>
-          <div class="terminal-card">
-            <div class="terminal-bar">
-              <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
-              <span>specula / verification run</span>
-              <span class="terminal-state"><i></i> complete</span>
-            </div>
+          <img
+            src="assets/specula-hero-illustration.png"
+            width="1254"
+            height="1254"
+            alt=""
+            fetchpriority="high"
+          />
 
-            <div class="command-line">
-              <span class="prompt">$</span>
-              <code>specula run mysys --artifact=/path/to/repo</code>
-            </div>
-
-            <ol class="run-steps">
-              <li class="is-complete">
-                <span class="run-index">01</span>
-                <span class="run-icon" aria-hidden="true">✓</span>
-                <div>
-                  <span class="run-label">CODE ANALYSIS</span>
-                  <strong>System behavior mapped</strong>
-                </div>
-                <span class="run-meta">source → model</span>
-              </li>
-              <li class="is-complete">
-                <span class="run-index">02</span>
-                <span class="run-icon" aria-hidden="true">✓</span>
-                <div>
-                  <span class="run-label">SPEC GENERATION</span>
-                  <strong>TLA+ model and invariants written</strong>
-                </div>
-                <span class="run-meta">ready</span>
-              </li>
-              <li class="is-alert">
-                <span class="run-index">03</span>
-                <span class="run-icon" aria-hidden="true">!</span>
-                <div>
-                  <span class="run-label">MODEL CHECKING</span>
-                  <strong>Invariant violation found</strong>
-                </div>
-                <span class="run-meta">state 4,281</span>
-              </li>
-              <li class="is-confirmed">
-                <span class="run-index">04</span>
-                <span class="run-icon" aria-hidden="true">✓</span>
-                <div>
-                  <span class="run-label">BUG CONFIRMATION</span>
-                  <strong>Failure reproduced in code</strong>
-                </div>
-                <span class="run-meta">confirmed</span>
-              </li>
-            </ol>
-
-            <div class="terminal-result">
-              <span class="result-mark" aria-hidden="true">↳</span>
-              <div>
-                <span>Actionable output</span>
-                <strong>Concrete schedule + code-level reproducer</strong>
-              </div>
-            </div>
+          <div class="illustration-label label-code" aria-hidden="true">
+            <span>01</span><strong>System code</strong>
+          </div>
+          <div class="illustration-label label-spec" aria-hidden="true">
+            <span>02</span><strong>TLA+ specification</strong>
+          </div>
+          <div class="illustration-label label-check" aria-hidden="true">
+            <span>03</span><strong>State-space checking</strong>
+          </div>
+          <div class="illustration-label label-bug" aria-hidden="true">
+            <span>04</span><strong>Confirmed in code</strong>
           </div>
 
-          <div class="float-card float-card-model" aria-hidden="true">
-            <span>SPEC</span>
-            <strong>System.tla</strong>
-          </div>
-          <div class="float-card float-card-bug" aria-hidden="true">
-            <span>BUG</span>
-            <strong>Reproduced</strong>
-          </div>
-        </div>
+          <figcaption id="hero-figure-caption" class="sr-only">
+            Specula analyzes system code, generates and validates a TLA+
+            specification, explores its state space, and confirms discovered
+            violations in the implementation.
+          </figcaption>
+        </figure>
       </section>
 
       <section class="signal-strip" aria-label="Specula value summary">
