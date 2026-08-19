@@ -3,6 +3,29 @@
   const themeToggle = document.querySelector(".theme-toggle");
   const themeColor = document.querySelector('meta[name="theme-color"]');
 
+  if (
+    "IntersectionObserver" in window &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
+    root.classList.add("motion-ready");
+    const revealItems = [...document.querySelectorAll(".reveal")];
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -7% 0px" },
+    );
+
+    revealItems.forEach((item, index) => {
+      item.style.setProperty("--reveal-delay", `${(index % 3) * 70}ms`);
+      revealObserver.observe(item);
+    });
+  }
+
   const updateThemeControls = () => {
     const isLight = root.dataset.theme === "light";
     themeToggle?.setAttribute("aria-pressed", String(isLight));
