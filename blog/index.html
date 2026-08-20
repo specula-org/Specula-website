@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Independent articles, reviews, and community perspectives about Specula."
+    />
+    <meta name="theme-color" content="#050d16" />
+    <meta property="og:title" content="Specula Blog — Community writing and coverage" />
+    <meta
+      property="og:description"
+      content="Independent articles, reviews, and community perspectives about Specula."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://specula.info/blog/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Specula Blog — Community writing and coverage" />
+    <meta
+      name="twitter:description"
+      content="Independent articles, reviews, and community perspectives about Specula."
+    />
+    <title>Specula Blog — Community writing and coverage</title>
+    <link rel="icon" href="../assets/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      (() => {
+        try {
+          if (localStorage.getItem("specula-theme") === "light") {
+            document.documentElement.dataset.theme = "light";
+          }
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="../" aria-label="Specula home">
+          <img src="../assets/specula-wordmark.webp" alt="Specula" width="287" height="127" />
+        </a>
+
+        <nav aria-label="Primary navigation">
+          <a href="../">Home</a>
+          <a class="nav-current" href="./" aria-current="page">Blog</a>
+          <a href="../#bugs">Bug List</a>
+          <a href="../#cite">Cite</a>
+          <a href="../#contact">Community</a>
+          <a
+            class="github-nav"
+            href="https://github.com/specula-org/Specula"
+            aria-label="Specula on GitHub"
+            title="GitHub"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .7a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.74-1.55-2.58-.3-5.29-1.29-5.29-5.73 0-1.27.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.08 0 0 .97-.31 3.16 1.19a10.9 10.9 0 0 1 5.76 0c2.19-1.5 3.16-1.19 3.16-1.19.63 1.61.23 2.79.11 3.08.74.81 1.19 1.84 1.19 3.11 0 4.45-2.72 5.43-5.3 5.72.42.36.79 1.06.79 2.14v3.26c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z" />
+            </svg>
+          </a>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Switch to light mode"
+            aria-pressed="false"
+            title="Switch color theme"
+          >
+            <span class="theme-icon theme-icon-sun" aria-hidden="true">☼</span>
+            <span class="theme-icon theme-icon-moon" aria-hidden="true">◒</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="blog-main">
+      <section class="blog-hero section-shell" aria-labelledby="blog-title">
+        <p class="eyebrow reveal"><span></span> Community writing</p>
+        <h1 id="blog-title" class="reveal">Ideas, reviews, and conversations around Specula.</h1>
+        <p class="blog-lede reveal">
+          Independent perspectives on autonomous formal specification,
+          model-code conformance, and finding deep bugs in real systems.
+        </p>
+      </section>
+
+      <section class="featured-writing section-shell" aria-labelledby="featured-title">
+        <div class="featured-post reveal">
+          <div class="featured-art" aria-hidden="true">
+            <span class="art-brace">{</span>
+            <div class="art-spec">
+              <i></i><i></i><i></i>
+              <div><b></b><b></b><b></b></div>
+            </div>
+            <span class="art-brace">}</span>
+            <em>Metadata</em>
+          </div>
+
+          <article class="featured-copy">
+            <div class="post-meta">
+              <span class="post-kind">Featured article</span>
+              <span>Aug 12, 2026</span>
+            </div>
+            <h2 id="featured-title">Specula: Scaling formal specifications for autonomous model checking of system code</h2>
+            <p>
+              Murat Demirbas examines why Specula’s push-button workflow is an
+              impressive step for automated TLA+ modeling, then raises open
+              questions about composition and system-level guarantees.
+            </p>
+            <div class="post-footer">
+              <div><strong>Murat Demirbas</strong><span>Metadata</span></div>
+              <a href="https://muratbuffalo.blogspot.com/2026/08/specula-scaling-formal-specifications.html">
+                Read article <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="coverage-section section-shell" aria-labelledby="coverage-title">
+        <div class="coverage-heading reveal">
+          <p class="eyebrow"><span></span> Around the web</p>
+          <h2 id="coverage-title">Coverage &amp; Reviews</h2>
+          <p>Newsletters and structured reviews that help readers discover or understand the work.</p>
+        </div>
+
+        <div class="coverage-grid">
+          <article class="coverage-card reveal">
+            <div class="coverage-index">01</div>
+            <div class="post-meta"><span class="post-kind">Newsletter</span><span>Aug 13, 2026</span></div>
+            <h3>Specula featured in TLDR AI’s Engineering &amp; Research roundup</h3>
+            <p>
+              TLDR AI highlights the end-to-end workflow and points readers to
+              the independent Metadata analysis.
+            </p>
+            <div class="coverage-source"><strong>TLDR AI</strong><a href="https://ai.tldr.tech/p/2026-08-13-tldr-ai">View coverage ↗</a></div>
+          </article>
+
+          <article class="coverage-card reveal">
+            <div class="coverage-index">02</div>
+            <div class="post-meta"><span class="post-kind">Literature review</span><span>External review</span></div>
+            <h3>A structured walkthrough of Specula’s methodology</h3>
+            <p>
+              Moonlight organizes the paper around specification generation,
+              conformance, model checking, reproduction, and self-evolving loops.
+            </p>
+            <div class="coverage-source"><strong>Moonlight</strong><a href="https://www.themoonlight.io/en/review/specula-scaling-formal-specifications-for-autonomous-model-checking-of-system-code">Read review ↗</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="submit-writing section-shell reveal">
+        <div>
+          <p>Written about Specula?</p>
+          <h2>Share your article with the community.</h2>
+        </div>
+        <a class="button button-primary" href="https://github.com/specula-org/Specula/issues">
+          Send us the link <span aria-hidden="true">↗</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-shell footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../" aria-label="Specula home">
+            <img src="../assets/specula-wordmark.webp" alt="Specula" width="287" height="127" loading="lazy" decoding="async" />
+          </a>
+          <p>Scaling formal specs for autonomous bug finding.</p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <strong>Project</strong>
+            <a href="https://github.com/specula-org/Specula">GitHub</a>
+            <a href="https://github.com/specula-org/Specula/blob/main/docs/Usage.md">Documentation</a>
+            <a href="../#cite">Cite</a>
+            <a href="./">Blog</a>
+          </div>
+          <div>
+            <strong>Community</strong>
+            <a href="../#contact">Contact</a>
+            <a href="https://github.com/specula-org/Specula/issues">Issues</a>
+            <a href="https://github.com/specula-org/Specula/blob/main/CONTRIBUTING.md">Contribute</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-shell footer-bottom">
+        <span>© 2026 Specula contributors</span>
+        <span>Open source under the Apache-2.0 license</span>
+      </div>
+    </footer>
+
+    <script src="../script.js" defer></script>
+  </body>
+</html>
