@@ -3265,6 +3265,124 @@ h1 span {
   }
 }
 
+/* Simple editorial list for externally authored Blog posts. */
+.blog-hero {
+  padding-block: 82px 42px;
+}
+
+.blog-hero h1 {
+  font-size: clamp(2.8rem, 4vw, 3.55rem);
+  letter-spacing: -0.045em;
+}
+
+.blog-list {
+  padding-bottom: 62px;
+}
+
+.blog-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(34px, 5vw, 70px);
+  align-items: center;
+  max-width: 1120px;
+  padding-block: 36px;
+  border-block: 1px solid var(--line);
+}
+
+.blog-entry-image {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: #f7f7f5;
+  transition: border-color 170ms ease, transform 170ms ease;
+}
+
+.blog-entry-image:hover {
+  border-color: color-mix(in srgb, var(--blue) 52%, transparent);
+  transform: translateY(-2px);
+}
+
+.blog-entry-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blog-entry-copy {
+  min-width: 0;
+}
+
+.blog-entry-meta {
+  margin: 0 0 15px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.blog-entry-copy h3 {
+  max-width: 650px;
+  margin: 0 0 16px;
+  font-size: clamp(1.65rem, 2.5vw, 2.35rem);
+  line-height: 1.1;
+  letter-spacing: -0.038em;
+}
+
+.blog-entry-copy > p:not(.blog-entry-meta) {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted-strong);
+  font-size: 0.9rem;
+  line-height: 1.68;
+}
+
+.blog-entry-link {
+  display: inline-flex;
+  gap: 11px;
+  align-items: center;
+  margin-top: 24px;
+  color: var(--blue-bright);
+  font-size: 0.78rem;
+  font-weight: 680;
+}
+
+.blog-submit {
+  padding-block: 0 92px;
+  margin-block: 0;
+  color: var(--muted-strong);
+  font-size: 0.82rem;
+}
+
+.blog-submit a {
+  margin-left: 5px;
+  color: var(--blue-bright);
+  font-weight: 680;
+}
+
+@media (max-width: 760px) {
+  .blog-hero {
+    padding-block: 66px 30px;
+  }
+
+  .blog-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .blog-entry {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding-block: 25px 32px;
+  }
+
+  .blog-entry-copy h3 {
+    font-size: 1.65rem;
+  }
+
+  .blog-submit {
+    padding-bottom: 70px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
