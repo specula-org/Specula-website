@@ -78,86 +78,72 @@
 
     <main id="main" class="blog-main">
       <section class="blog-hero section-shell" aria-labelledby="blog-title">
-        <p class="eyebrow reveal"><span></span> Community writing</p>
-        <h1 id="blog-title" class="reveal">Ideas, reviews, and conversations around Specula.</h1>
+        <h1 id="blog-title" class="reveal">Blog</h1>
         <p class="blog-lede reveal">
-          Independent perspectives on autonomous formal specification,
-          model-code conformance, and finding deep bugs in real systems.
+          Articles and commentary about Specula from the systems and formal methods community.
         </p>
       </section>
 
-      <section class="featured-writing section-shell" aria-labelledby="featured-title">
-        <div class="featured-post reveal">
-          <div class="featured-art" aria-hidden="true">
-            <span class="art-brace">{</span>
-            <div class="art-spec">
+      <section class="writing-section section-shell" aria-labelledby="writing-title">
+        <h2 id="writing-title" class="sr-only">Writing about Specula</h2>
+        <div class="writing-grid">
+          <article class="writing-card reveal">
+            <div class="writing-visual visual-metadata" aria-hidden="true">
+              <span>{</span>
+              <div><i></i><i></i><i></i><b></b></div>
+              <span>}</span>
+            </div>
+            <div class="writing-copy">
+              <div class="post-meta"><span class="post-kind">Blog</span><span>Aug 12, 2026</span></div>
+              <h3>Specula: Scaling formal specifications for autonomous model checking of system code</h3>
+              <p>
+                A thoughtful analysis of what Specula gets right, plus open
+                questions about composition and system-level guarantees.
+              </p>
+              <div class="writing-footer"><strong>Metadata · Murat Demirbas</strong><a href="https://muratbuffalo.blogspot.com/2026/08/specula-scaling-formal-specifications.html">Read post ↗</a></div>
+            </div>
+          </article>
+
+          <article class="writing-card reveal">
+            <div class="writing-visual visual-newsletter" aria-hidden="true">
+              <strong>TL;DR</strong><span></span><span></span><span></span>
+            </div>
+            <div class="writing-copy">
+              <div class="post-meta"><span class="post-kind">Newsletter</span><span>Aug 13, 2026</span></div>
+              <h3>Specula in TLDR AI</h3>
+              <p>
+                A concise introduction to the end-to-end workflow, from
+                generating TLA+ specifications to reproducing bugs in code.
+              </p>
+              <div class="writing-footer"><strong>TLDR AI</strong><a href="https://ai.tldr.tech/p/2026-08-13-tldr-ai">Read issue ↗</a></div>
+            </div>
+          </article>
+
+          <article class="writing-card reveal">
+            <div class="writing-visual visual-review" aria-hidden="true">
+              <div><span></span><span></span><span></span><span></span></div>
               <i></i><i></i><i></i>
-              <div><b></b><b></b><b></b></div>
             </div>
-            <span class="art-brace">}</span>
-            <em>Metadata</em>
-          </div>
-
-          <article class="featured-copy">
-            <div class="post-meta">
-              <span class="post-kind">Featured article</span>
-              <span>Aug 12, 2026</span>
-            </div>
-            <h2 id="featured-title">Specula: Scaling formal specifications for autonomous model checking of system code</h2>
-            <p>
-              Murat Demirbas examines why Specula’s push-button workflow is an
-              impressive step for automated TLA+ modeling, then raises open
-              questions about composition and system-level guarantees.
-            </p>
-            <div class="post-footer">
-              <div><strong>Murat Demirbas</strong><span>Metadata</span></div>
-              <a href="https://muratbuffalo.blogspot.com/2026/08/specula-scaling-formal-specifications.html">
-                Read article <span aria-hidden="true">↗</span>
-              </a>
+            <div class="writing-copy">
+              <div class="post-meta"><span class="post-kind">Paper review</span><span>Moonlight</span></div>
+              <h3>A structured review of Specula</h3>
+              <p>
+                A section-by-section guide to specification generation,
+                conformance checking, reproduction, and self-evolving loops.
+              </p>
+              <div class="writing-footer"><strong>Moonlight</strong><a href="https://www.themoonlight.io/en/review/specula-scaling-formal-specifications-for-autonomous-model-checking-of-system-code">Read review ↗</a></div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="coverage-section section-shell" aria-labelledby="coverage-title">
-        <div class="coverage-heading reveal">
-          <p class="eyebrow"><span></span> Around the web</p>
-          <h2 id="coverage-title">Coverage &amp; Reviews</h2>
-          <p>Newsletters and structured reviews that help readers discover or understand the work.</p>
-        </div>
-
-        <div class="coverage-grid">
-          <article class="coverage-card reveal">
-            <div class="coverage-index">01</div>
-            <div class="post-meta"><span class="post-kind">Newsletter</span><span>Aug 13, 2026</span></div>
-            <h3>Specula featured in TLDR AI’s Engineering &amp; Research roundup</h3>
-            <p>
-              TLDR AI highlights the end-to-end workflow and points readers to
-              the independent Metadata analysis.
-            </p>
-            <div class="coverage-source"><strong>TLDR AI</strong><a href="https://ai.tldr.tech/p/2026-08-13-tldr-ai">View coverage ↗</a></div>
-          </article>
-
-          <article class="coverage-card reveal">
-            <div class="coverage-index">02</div>
-            <div class="post-meta"><span class="post-kind">Literature review</span><span>External review</span></div>
-            <h3>A structured walkthrough of Specula’s methodology</h3>
-            <p>
-              Moonlight organizes the paper around specification generation,
-              conformance, model checking, reproduction, and self-evolving loops.
-            </p>
-            <div class="coverage-source"><strong>Moonlight</strong><a href="https://www.themoonlight.io/en/review/specula-scaling-formal-specifications-for-autonomous-model-checking-of-system-code">Read review ↗</a></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="submit-writing section-shell reveal">
+      <section class="submit-writing submit-writing-compact section-shell reveal">
         <div>
-          <p>Written about Specula?</p>
-          <h2>Share your article with the community.</h2>
+          <h2>Written about Specula?</h2>
+          <p>Send us the link and we’ll add it here.</p>
         </div>
         <a class="button button-primary" href="https://github.com/specula-org/Specula/issues">
-          Send us the link <span aria-hidden="true">↗</span>
+          Share an article <span aria-hidden="true">↗</span>
         </a>
       </section>
     </main>
