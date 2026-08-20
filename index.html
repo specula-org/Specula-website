@@ -185,50 +185,57 @@
             <li><span>2</span><div><strong>Configure your agent</strong><p>Run setup once to install the skills and supporting tools.</p></div></li>
             <li><span>3</span><div><strong>Start a run</strong><p>Give Specula a name and the path to your system.</p></div></li>
           </ol>
-          <a class="text-link" href="https://github.com/specula-org/Specula/blob/main/docs/Usage.md">
-            View documentation <span aria-hidden="true">→</span>
+          <a class="text-link" href="https://github.com/specula-org/Specula#setup">
+            View README quick start <span aria-hidden="true">→</span>
           </a>
         </div>
 
-        <div class="quickstart reveal">
-          <div class="quickstart-tabs" role="tablist" aria-label="Quick start steps">
-            <button id="install-tab" type="button" role="tab" aria-controls="install-panel" aria-selected="true" data-command-tab="install">1. Install</button>
-            <button id="run-tab" type="button" role="tab" aria-controls="run-panel" aria-selected="false" tabindex="-1" data-command-tab="run">2. Run</button>
+        <div class="quickstart command-builder reveal" data-command-builder>
+          <div class="builder-controls">
+            <div class="builder-row">
+              <span class="builder-label">Command</span>
+              <div class="builder-options" role="group" aria-label="Command type">
+                <button type="button" data-builder-mode="install" aria-pressed="true">Install</button>
+                <button type="button" data-builder-mode="run" aria-pressed="false">Run</button>
+              </div>
+            </div>
+
+            <div class="builder-row" data-run-config hidden>
+              <span class="builder-label">Agent</span>
+              <div class="builder-options builder-options-wrap" role="group" aria-label="Coding agent">
+                <button type="button" data-builder-agent="claude-code" aria-pressed="true">Claude Code</button>
+                <button type="button" data-builder-agent="codex" aria-pressed="false">Codex</button>
+                <button type="button" data-builder-agent="copilot-cli" aria-pressed="false">Copilot CLI</button>
+                <button type="button" data-builder-agent="opencode" aria-pressed="false">OpenCode</button>
+                <button type="button" data-builder-agent="pi" aria-pressed="false">Pi</button>
+              </div>
+            </div>
+
+            <div class="builder-row" data-run-config hidden>
+              <span class="builder-label">Source</span>
+              <div class="builder-options" role="group" aria-label="Source checkout handling">
+                <button type="button" data-builder-source="working" aria-pressed="true">Working copy</button>
+                <button type="button" data-builder-source="keep" aria-pressed="false">Keep original</button>
+              </div>
+            </div>
           </div>
 
-          <div id="install-panel" class="command-panel" role="tabpanel" aria-labelledby="install-tab" data-command-panel="install">
-            <div class="command-row">
-              <span class="prompt">$</span>
-              <code>git clone https://github.com/specula-org/Specula.git</code>
+          <div class="command-output">
+            <div class="command-output-heading">
+              <span>Run this Command:</span>
+              <button class="command-copy" type="button" data-copy-target="#quick-command">
+                Copy <span aria-hidden="true">▣</span>
+              </button>
             </div>
-            <div class="command-row">
-              <span class="prompt">$</span>
-              <code>cd Specula && uv tool install -e .</code>
-            </div>
-            <div class="command-row">
-              <span class="prompt">$</span>
-              <code>specula setup</code>
-            </div>
-            <button class="copy-button" type="button" data-copy="git clone https://github.com/specula-org/Specula.git&#10;cd Specula && uv tool install -e .&#10;specula setup">
-              Copy <span aria-hidden="true">▣</span>
-            </button>
+            <pre><code id="quick-command" data-generated-command>git clone https://github.com/specula-org/Specula.git
+cd Specula
+uv tool install -e .
+specula setup</code></pre>
           </div>
 
-          <div id="run-panel" class="command-panel" role="tabpanel" aria-labelledby="run-tab" data-command-panel="run" hidden>
-            <div class="command-row">
-              <span class="prompt">$</span>
-              <code>specula run mysys --artifact=/path/to/repo</code>
-            </div>
-            <p class="command-caption">Outputs are written to <code>runs/&lt;run-id&gt;</code>.</p>
-            <button class="copy-button" type="button" data-copy="specula run mysys --artifact=/path/to/repo">
-              Copy <span aria-hidden="true">▣</span>
-            </button>
-          </div>
-
-          <div class="quickstart-footer">
-            <span><i></i> Auto mode</span>
-            <span>Linux · macOS · Windows via WSL2</span>
-          </div>
+          <p class="builder-help" data-builder-help>
+            Default setup. The same installation works with every supported coding agent.
+          </p>
         </div>
       </section>
 

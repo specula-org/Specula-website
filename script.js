@@ -47,9 +47,6 @@
     updateThemeControls();
   });
 
-  const tabs = [...document.querySelectorAll("[data-command-tab]")];
-  const panels = [...document.querySelectorAll("[data-command-panel]")];
-
   const copyText = async (value) => {
     if (navigator.clipboard?.writeText) {
       await navigator.clipboard.writeText(value);
@@ -68,27 +65,89 @@
     if (!copied) throw new Error("Copy unavailable");
   };
 
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const selected = tab.dataset.commandTab;
-      tabs.forEach((item) => {
-        item.setAttribute("aria-selected", String(item === tab));
-        item.tabIndex = item === tab ? 0 : -1;
+  const builder = document.querySelector("[data-command-builder]");
+  if (builder) {
+    const modeButtons = [...builder.querySelectorAll("[data-builder-mode]")];
+    const agentButtons = [...builder.querySelectorAll("[data-builder-agent]")];
+    const sourceButtons = [...builder.querySelectorAll("[data-builder-source]")];
+    const runConfigRows = [...builder.querySelectorAll("[data-run-config]")];
+    const command = builder.querySelector("[data-generated-command]");
+    const help = builder.querySelector("[data-builder-help]");
+    let mode = "install";
+    let agent = "claude-code";
+    let source = "working";
+
+    const selectButton = (buttons, selected) => {
+      buttons.forEach((button) => {
+        const value =
+          button.dataset.builderMode ??
+          button.dataset.builderAgent ??
+          button.dataset.builderSource;
+        button.setAttribute("aria-pressed", String(value === selected));
       });
-      panels.forEach((panel) => {
-        panel.hidden = panel.dataset.commandPanel !== selected;
+    };
+
+    const renderCommand = () => {
+      const isRun = mode === "run";
+      runConfigRows.forEach((row) => {
+        row.hidden = !isRun;
+      });
+
+      if (!isRun) {
+        command.textContent = [
+          "git clone https://github.com/specula-org/Specula.git",
+          "cd Specula",
+          "uv tool install -e .",
+          "specula setup",
+        ].join("\n");
+        help.textContent =
+          "Default setup. The same installation works with every supported coding agent.";
+        return;
+      }
+
+      const options = [];
+      if (agent !== "claude-code") options.push(`--agent=${agent}`);
+      if (source === "keep") options.push("--keep-original");
+      options.push("--artifact=/path/to/repo");
+      command.textContent = [
+        "specula run mysys \\",
+        ...options.map(
+          (option, index) =>
+            `  ${option}${index === options.length - 1 ? "" : " \\"}`,
+        ),
+      ].join("\n");
+      help.textContent =
+        source === "keep"
+          ? "Runs every phase in a private copy and writes a reviewable changes.patch."
+          : "Default source handling. Harness and reproduction work may modify the working checkout.";
+    };
+
+    modeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        mode = button.dataset.builderMode;
+        selectButton(modeButtons, mode);
+        renderCommand();
       });
     });
 
-    tab.addEventListener("keydown", (event) => {
-      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-      event.preventDefault();
-      const direction = event.key === "ArrowRight" ? 1 : -1;
-      const nextIndex = (tabs.indexOf(tab) + direction + tabs.length) % tabs.length;
-      tabs[nextIndex].click();
-      tabs[nextIndex].focus();
+    agentButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        agent = button.dataset.builderAgent;
+        selectButton(agentButtons, agent);
+        renderCommand();
+      });
     });
-  });
+
+    sourceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        source = button.dataset.builderSource;
+        selectButton(sourceButtons, source);
+        renderCommand();
+      });
+    });
+
+    renderCommand();
+  }
 
   document.querySelectorAll("[data-copy]").forEach((button) => {
     button.addEventListener("click", async () => {
