@@ -1741,12 +1741,6 @@ h1 span {
   object-fit: contain;
 }
 
-.brand-icon--claude img,
-.brand-icon--openai img,
-.brand-icon--copilot img {
-  filter: brightness(0) invert(1);
-}
-
 .brand-icon--opencode img,
 .brand-icon--pi img,
 .brand-icon--zai img,
@@ -1829,7 +1823,7 @@ h1 span {
   line-height: 1.7;
 }
 
-.bug-placeholder-table {
+.bug-list-preview {
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: 12px;
@@ -1837,7 +1831,7 @@ h1 span {
   box-shadow: 0 20px 52px rgba(0, 0, 0, 0.12);
 }
 
-.placeholder-row {
+.bug-list-row {
   display: grid;
   grid-template-columns: 0.85fr 1.25fr 0.75fr;
   gap: 20px;
@@ -1847,11 +1841,11 @@ h1 span {
   border-bottom: 1px solid var(--line);
 }
 
-.placeholder-row:last-child {
+.bug-list-row:last-child {
   border-bottom: 0;
 }
 
-.placeholder-head {
+.bug-list-head {
   min-height: 44px;
   color: var(--muted);
   background: var(--surface-2);
@@ -1861,24 +1855,42 @@ h1 span {
   text-transform: uppercase;
 }
 
-.placeholder-row i {
-  display: block;
-  width: 76%;
-  height: 7px;
+.bug-list-row > strong,
+.bug-list-row > span,
+.bug-list-row > b {
+  min-width: 0;
+}
+
+.bug-list-row > strong {
+  overflow: hidden;
+  color: var(--text-soft);
+  font-size: 0.74rem;
+  font-weight: 680;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bug-list-row > span {
+  color: var(--muted-strong);
+  font-size: 0.67rem;
+  line-height: 1.35;
+}
+
+.bug-list-row > b {
+  justify-self: start;
+  padding: 5px 8px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--blue) 24%, transparent);
-}
-
-.placeholder-row i:nth-child(2) {
-  width: 92%;
-  background: color-mix(in srgb, var(--text-soft) 12%, transparent);
-}
-
-.placeholder-row b {
   color: var(--orange-bright);
+  background: var(--orange-faint);
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: 0.55rem;
-  font-weight: 560;
+  font-weight: 650;
+  text-transform: lowercase;
+}
+
+.bug-list-row > .status-fixed {
+  color: var(--blue-bright);
+  background: var(--blue-faint);
 }
 
 .closing-section {
@@ -2854,7 +2866,7 @@ h1 span {
     font-size: clamp(2.25rem, 10vw, 3.4rem);
   }
 
-  .placeholder-row {
+  .bug-list-row {
     grid-template-columns: 0.8fr 1.1fr 0.8fr;
     gap: 10px;
     padding-inline: 12px;
