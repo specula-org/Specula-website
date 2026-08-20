@@ -90,15 +90,14 @@ body::before {
 body::after {
   position: absolute;
   top: -180px;
-  left: 55%;
+  right: 0;
   z-index: -1;
-  width: 760px;
+  width: min(760px, 100%);
   height: 640px;
   border-radius: 50%;
   content: "";
   pointer-events: none;
   background: radial-gradient(circle, rgba(52, 174, 233, 0.12), transparent 66%);
-  transform: translateX(-20%);
 }
 
 button,
@@ -192,6 +191,14 @@ nav a {
   transition: color 160ms ease;
 }
 
+nav a:not(.github-nav) {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding-inline: 6px;
+}
+
 nav a:hover {
   color: var(--text);
 }
@@ -201,10 +208,11 @@ nav a:hover {
 }
 
 .nav-current::after {
-  display: block;
-  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+  left: 0;
   height: 2px;
-  margin-top: 6px;
   border-radius: 2px;
   content: "";
   background: linear-gradient(90deg, var(--blue), var(--orange));
@@ -212,8 +220,8 @@ nav a:hover {
 
 .github-nav {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 40px;
+  height: 40px;
   place-items: center;
   border-radius: 8px;
 }
@@ -754,7 +762,12 @@ h1 span {
   border: 1px dashed color-mix(in srgb, var(--blue) 22%, transparent);
   border-radius: 50%;
   content: "";
-  animation: orbit-spin 36s linear infinite;
+  animation: orbit-spin 42s linear infinite paused;
+}
+
+.hero-visual.is-in-view::after {
+  animation-play-state: running;
+  will-change: transform;
 }
 
 .hero-visual > img {
@@ -1528,7 +1541,7 @@ h1 span {
 }
 
 .builder-options button {
-  min-height: 34px;
+  min-height: 38px;
   padding-inline: 11px;
   border: 1px solid var(--line-strong);
   border-radius: 8px;
@@ -1582,7 +1595,7 @@ h1 span {
   display: inline-flex;
   gap: 7px;
   align-items: center;
-  min-height: 31px;
+  min-height: 36px;
   padding-inline: 10px;
   border: 1px solid var(--line-strong);
   border-radius: 6px;
@@ -1793,6 +1806,9 @@ h1 span {
 
 .support-note a {
   color: var(--blue);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--blue) 58%, transparent);
+  text-underline-offset: 3px;
 }
 
 .bug-list-section {
@@ -2381,16 +2397,17 @@ h1 span {
 
 .motion-ready .reveal {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translate3d(0, 14px, 0);
   transition:
-    opacity 680ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 620ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
 }
 
 .motion-ready .reveal.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes reveal-up {
@@ -2536,8 +2553,12 @@ h1 span {
     justify-content: flex-end;
   }
 
-  nav a {
+  nav a:not(.github-nav) {
     display: none;
+  }
+
+  nav a:nth-child(-n + 2) {
+    display: inline-flex;
   }
 
   nav a:last-child {

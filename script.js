@@ -3,28 +3,45 @@
   const themeToggle = document.querySelector(".theme-toggle");
   const themeColor = document.querySelector('meta[name="theme-color"]');
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const supportsObserver = "IntersectionObserver" in window;
 
-  if (
-    "IntersectionObserver" in window &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-  ) {
+  if (supportsObserver && !reducedMotion.matches) {
     root.classList.add("motion-ready");
     const revealItems = [...document.querySelectorAll(".reveal")];
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
+          entry.target.addEventListener(
+            "transitionend",
+            () => entry.target.style.setProperty("will-change", "auto"),
+            { once: true },
+          );
           entry.target.classList.add("is-visible");
           revealObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -7% 0px" },
+      { threshold: 0.08, rootMargin: "0px 0px -4% 0px" },
     );
 
-    revealItems.forEach((item, index) => {
-      item.style.setProperty("--reveal-delay", `${(index % 3) * 70}ms`);
+    revealItems.forEach((item) => {
+      const siblings = [...(item.parentElement?.children ?? [])].filter((child) =>
+        child.classList.contains("reveal"),
+      );
+      const siblingIndex = Math.max(0, siblings.indexOf(item));
+      item.style.setProperty("--reveal-delay", `${Math.min(siblingIndex, 2) * 60}ms`);
       revealObserver.observe(item);
     });
+
+    const heroVisual = document.querySelector(".hero-visual");
+    if (heroVisual) {
+      const heroObserver = new IntersectionObserver(
+        ([entry]) => heroVisual.classList.toggle("is-in-view", entry.isIntersecting),
+        { rootMargin: "120px 0px" },
+      );
+      heroObserver.observe(heroVisual);
+    }
   }
 
   const updateThemeControls = () => {
