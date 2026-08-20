@@ -2,6 +2,7 @@
   const root = document.documentElement;
   const themeToggle = document.querySelector(".theme-toggle");
   const themeColor = document.querySelector('meta[name="theme-color"]');
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
   if (
     "IntersectionObserver" in window &&
@@ -37,6 +38,18 @@
   };
 
   updateThemeControls();
+
+  systemTheme.addEventListener?.("change", (event) => {
+    let hasSavedTheme = false;
+    try {
+      const savedTheme = localStorage.getItem("specula-theme");
+      hasSavedTheme = savedTheme === "light" || savedTheme === "dark";
+    } catch (_) {}
+
+    if (hasSavedTheme) return;
+    root.dataset.theme = event.matches ? "dark" : "light";
+    updateThemeControls();
+  });
 
   themeToggle?.addEventListener("click", () => {
     const nextTheme = root.dataset.theme === "light" ? "dark" : "light";

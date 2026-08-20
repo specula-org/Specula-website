@@ -32,16 +32,27 @@
     <title>Specula — Generate formal specifications. Find deep bugs.</title>
     <link rel="icon" href="assets/favicon.png" type="image/png" />
     <link rel="preload" href="assets/specula-hero-illustration.webp" as="image" type="image/webp" />
-    <link rel="stylesheet" href="styles.css" />
     <script>
       (() => {
+        let savedTheme = null;
         try {
-          if (localStorage.getItem("specula-theme") === "light") {
-            document.documentElement.dataset.theme = "light";
-          }
+          savedTheme = localStorage.getItem("specula-theme");
         } catch (_) {}
+
+        const theme =
+          savedTheme === "light" || savedTheme === "dark"
+            ? savedTheme
+            : window.matchMedia?.("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+
+        document.documentElement.dataset.theme = theme;
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute("content", theme === "light" ? "#f6f9fb" : "#050d16");
       })();
     </script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

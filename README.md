@@ -5,5 +5,5 @@ open-source workflow for finding and reproducing deep bugs in concurrent and
 distributed systems with coding agents and TLA+.
 
 The site is dependency-free and served directly by GitHub Pages from the
-repository root. It defaults to a dark theme and stores the visitor's theme
-choice locally in the browser.
+repository root. It follows the visitor's system color scheme by default and
+stores any manual theme choice locally in the browser.
