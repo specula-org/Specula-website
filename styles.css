@@ -419,6 +419,17 @@ h1 span {
   background: #ff8c22;
 }
 
+.button-paper {
+  border-color: color-mix(in srgb, var(--blue-bright) 36%, transparent);
+  color: #04121c;
+  background: var(--blue);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--blue) 17%, transparent);
+}
+
+.button-paper:hover {
+  background: var(--blue-bright);
+}
+
 .button-secondary {
   border-color: var(--line-strong);
   color: var(--text-soft);
@@ -1804,16 +1815,14 @@ h1 span {
     linear-gradient(145deg, var(--surface-2), var(--surface));
 }
 
-.bug-placeholder-copy h2,
-.cite-copy h2 {
+.bug-placeholder-copy h2 {
   margin: 20px 0 18px;
   font-size: clamp(2.2rem, 3.4vw, 3.45rem);
   line-height: 1.04;
   letter-spacing: -0.048em;
 }
 
-.bug-placeholder-copy > p,
-.cite-copy > p {
+.bug-placeholder-copy > p {
   margin: 0;
   color: var(--muted-strong);
   font-size: 0.94rem;
@@ -1870,91 +1879,6 @@ h1 span {
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: 0.55rem;
   font-weight: 560;
-}
-
-.coming-soon {
-  position: absolute;
-  top: 20px;
-  right: 22px;
-  padding: 7px 10px;
-  border: 1px solid color-mix(in srgb, var(--orange) 35%, transparent);
-  border-radius: 999px;
-  color: var(--orange-bright);
-  background: var(--orange-faint);
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.56rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.cite-section {
-  display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
-  gap: clamp(58px, 9vw, 130px);
-  align-items: center;
-  padding-block: 112px 126px;
-}
-
-.bibtex-card {
-  overflow: hidden;
-  border: 1px solid var(--line-strong);
-  border-radius: 14px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
-.bibtex-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 48px;
-  padding-inline: 16px 11px;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-  background: var(--surface-2);
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.bib-copy {
-  display: inline-flex;
-  gap: 7px;
-  align-items: center;
-  min-height: 31px;
-  padding-inline: 10px;
-  border: 1px solid var(--line-strong);
-  border-radius: 6px;
-  color: var(--muted-strong);
-  cursor: pointer;
-  background: var(--surface);
-  font-size: 0.58rem;
-  text-transform: none;
-}
-
-.bib-copy:hover {
-  border-color: color-mix(in srgb, var(--blue) 48%, transparent);
-  color: var(--text);
-}
-
-.bibtex-card pre {
-  padding: 24px;
-  margin: 0;
-  overflow: auto;
-  color: var(--text-soft);
-  background:
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    var(--surface);
-  background-size: 100% 27px;
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.68rem;
-  line-height: 1.72;
-  tab-size: 2;
-}
-
-.bibtex-card code {
-  font: inherit;
 }
 
 .closing-section {
@@ -2548,13 +2472,11 @@ h1 span {
     max-width: 620px;
   }
 
-  .bug-placeholder,
-  .cite-section {
+  .bug-placeholder {
     grid-template-columns: 1fr;
   }
 
-  .bug-placeholder-copy,
-  .cite-copy {
+  .bug-placeholder-copy {
     max-width: 680px;
   }
 
@@ -2928,8 +2850,7 @@ h1 span {
     padding: 54px 22px 28px;
   }
 
-  .bug-placeholder-copy h2,
-  .cite-copy h2 {
+  .bug-placeholder-copy h2 {
     font-size: clamp(2.25rem, 10vw, 3.4rem);
   }
 
@@ -2937,16 +2858,6 @@ h1 span {
     grid-template-columns: 0.8fr 1.1fr 0.8fr;
     gap: 10px;
     padding-inline: 12px;
-  }
-
-  .cite-section {
-    gap: 44px;
-    padding-block: 82px 94px;
-  }
-
-  .bibtex-card pre {
-    padding: 19px 16px;
-    font-size: 0.6rem;
   }
 
   .command-panel {
