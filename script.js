@@ -85,7 +85,7 @@
     const sourceButtons = [...builder.querySelectorAll("[data-builder-source]")];
     const runConfigRows = [...builder.querySelectorAll("[data-run-config]")];
     const command = builder.querySelector("[data-generated-command]");
-    const help = builder.querySelector("[data-builder-help]");
+    const sourceHelp = builder.querySelector("[data-source-help]");
     let mode = "install";
     let agent = "claude-code";
     let source = "working";
@@ -113,8 +113,6 @@
           "uv tool install -e .",
           "specula setup",
         ].join("\n");
-        help.textContent =
-          "Default setup. The same installation works with every supported coding agent.";
         return;
       }
 
@@ -129,10 +127,10 @@
             `  ${option}${index === options.length - 1 ? "" : " \\"}`,
         ),
       ].join("\n");
-      help.textContent =
+      sourceHelp.textContent =
         source === "keep"
-          ? "Runs every phase in a private copy and writes a reviewable changes.patch."
-          : "Default source handling. Harness and reproduction work may modify the working checkout.";
+          ? "Keeps the original repository untouched and saves changes to changes.patch."
+          : "Specula works in the selected repository and may modify its files.";
     };
 
     modeButtons.forEach((button) => {

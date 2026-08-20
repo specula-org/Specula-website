@@ -1498,6 +1498,18 @@ h1 span {
   justify-content: flex-end;
 }
 
+.builder-control-stack {
+  min-width: 0;
+}
+
+.builder-inline-help {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 0.62rem;
+  line-height: 1.45;
+  text-align: right;
+}
+
 .builder-options button {
   min-height: 34px;
   padding-inline: 11px;
@@ -1585,16 +1597,6 @@ h1 span {
   font-size: 0.75rem;
   line-height: 1.85;
   white-space: pre;
-}
-
-.builder-help {
-  min-height: 51px;
-  padding: 16px 22px;
-  margin: 0;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.65rem;
-  line-height: 1.5;
 }
 
 .support-section {
@@ -2812,8 +2814,8 @@ h1 span {
     font-size: 0.66rem;
   }
 
-  .builder-help {
-    padding-inline: 16px;
+  .builder-inline-help {
+    text-align: left;
   }
 
   .blog-hero {
@@ -3081,35 +3083,6 @@ h1 span {
   margin-top: 4px;
   border: 2px solid var(--orange);
   border-radius: 50%;
-}
-
-.visual-newsletter {
-  align-content: center;
-  gap: 8px;
-}
-
-.visual-newsletter strong {
-  color: var(--blue-bright);
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 1.7rem;
-  letter-spacing: -0.06em;
-}
-
-.visual-newsletter span {
-  display: block;
-  width: 120px;
-  height: 4px;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--text-soft) 15%, transparent);
-}
-
-.visual-newsletter span:nth-of-type(2) {
-  width: 86px;
-  background: color-mix(in srgb, var(--orange) 55%, transparent);
-}
-
-.visual-newsletter span:nth-of-type(3) {
-  width: 104px;
 }
 
 .visual-review > div {

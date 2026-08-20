@@ -224,9 +224,14 @@
 
             <div class="builder-row" data-run-config hidden>
               <span class="builder-label">Source</span>
-              <div class="builder-options" role="group" aria-label="Source checkout handling">
-                <button type="button" data-builder-source="working" aria-pressed="true">Working copy</button>
-                <button type="button" data-builder-source="keep" aria-pressed="false">Keep original</button>
+              <div class="builder-control-stack">
+                <div class="builder-options" role="group" aria-label="Source checkout handling">
+                  <button type="button" data-builder-source="working" aria-pressed="true">Edit source</button>
+                  <button type="button" data-builder-source="keep" aria-pressed="false">Use a copy</button>
+                </div>
+                <p class="builder-inline-help" data-source-help>
+                  Specula works in the selected repository and may modify its files.
+                </p>
               </div>
             </div>
           </div>
@@ -244,9 +249,6 @@ uv tool install -e .
 specula setup</code></pre>
           </div>
 
-          <p class="builder-help" data-builder-help>
-            Default setup. The same installation works with every supported coding agent.
-          </p>
         </div>
       </section>
 
