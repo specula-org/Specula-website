@@ -1746,11 +1746,11 @@ h1 span {
   height: 40px;
   padding: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--blue-bright) 32%, transparent);
+  border: 1px solid rgba(7, 21, 34, 0.12);
   border-radius: 10px;
-  color: #ffffff;
-  background: color-mix(in srgb, var(--blue) 72%, var(--bg));
-  box-shadow: 0 7px 18px color-mix(in srgb, var(--blue) 17%, transparent);
+  color: #071522;
+  background: #ffffff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.09);
 }
 
 .support-items .brand-icon img {
@@ -1758,13 +1758,6 @@ h1 span {
   width: 22px;
   height: 22px;
   object-fit: contain;
-}
-
-.brand-icon--opencode img,
-.brand-icon--pi img,
-.brand-icon--zai img,
-.brand-icon--kimi img {
-  mix-blend-mode: lighten;
 }
 
 .support-items .brand-icon--copilot img {
