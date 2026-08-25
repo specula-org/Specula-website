@@ -3243,6 +3243,10 @@ h1 span {
   border-block: 1px solid var(--line);
 }
 
+.blog-entry + .blog-entry {
+  border-top: 0;
+}
+
 .blog-entry-image {
   display: block;
   overflow: hidden;
