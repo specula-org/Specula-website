@@ -11,3 +11,4 @@ recommended model families.
 - `pi.svg`: Pi favicon from `https://pi.dev/`.
 - `zai.svg`: Z.ai logo from `https://z.ai/`.
 - `kimi.png`: Kimi favicon from `https://www.kimi.com/`.
+- `slack.png`: Official Slack mark from Slack's public brand asset CDN.

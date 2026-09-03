@@ -1947,9 +1947,21 @@ h1 span {
   line-height: 1.65;
 }
 
+.contact-actions {
+  display: flex;
+  flex: 0 0 224px;
+  flex-direction: column;
+  gap: 12px;
+  width: 224px;
+  margin-left: 50px;
+}
+
+.contact-actions .button {
+  width: 100%;
+}
+
 .button-inverse {
   flex: 0 0 auto;
-  margin-left: 50px;
   border-color: rgba(3, 16, 27, 0.15);
   color: #f4f9fc;
   background: #07131e;
@@ -1958,6 +1970,27 @@ h1 span {
 
 .button-inverse:hover {
   background: #0d2131;
+}
+
+.button-icon {
+  display: block;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.button-contact-secondary {
+  border-color: rgba(6, 17, 27, 0.16);
+  color: #06111b;
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 24px rgba(5, 18, 29, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.button-contact-secondary:hover {
+  border-color: rgba(6, 17, 27, 0.26);
+  background: rgba(255, 255, 255, 0.48);
 }
 
 .site-footer {
@@ -2926,6 +2959,11 @@ h1 span {
   }
 
   .button-inverse {
+    width: 100%;
+  }
+
+  .contact-actions {
+    flex-basis: auto;
     width: 100%;
     margin-left: 0;
   }
