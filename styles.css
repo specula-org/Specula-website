@@ -2054,6 +2054,67 @@ h1 span {
   min-height: 70vh;
 }
 
+.redirect-page {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+}
+
+.slack-redirect {
+  width: min(560px, calc(100% - 36px));
+  padding-block: 48px;
+}
+
+.slack-redirect > .brand {
+  margin: 0 auto 22px;
+}
+
+.slack-redirect-card {
+  padding: clamp(34px, 7vw, 58px);
+  border: 1px solid var(--line-strong);
+  border-radius: 17px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 100% 0, var(--orange-faint), transparent 28%),
+    radial-gradient(circle at 0 100%, var(--blue-faint), transparent 34%),
+    var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.slack-redirect-icon {
+  display: block;
+  width: 58px;
+  height: 58px;
+  padding: 12px;
+  margin: 0 auto 25px;
+  border: 1px solid rgba(7, 21, 34, 0.1);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.1);
+}
+
+.slack-redirect-card .eyebrow {
+  justify-content: center;
+}
+
+.slack-redirect-card h1 {
+  max-width: none;
+  margin: 20px 0 17px;
+  font-size: clamp(2.6rem, 9vw, 4rem);
+  line-height: 1;
+}
+
+.slack-redirect-card > p {
+  margin: 0;
+  color: var(--muted-strong);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.slack-redirect-card .button {
+  margin-top: 28px;
+}
+
 .blog-hero {
   padding-block: 112px 82px;
   text-align: center;

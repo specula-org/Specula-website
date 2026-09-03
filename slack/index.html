@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#050d16" />
+    <meta
+      http-equiv="refresh"
+      content="0; url=https://join.slack.com/t/agentictla/shared_invite/zt-48n6xr39t-kFPa9_spFJSj6Sf4M4Qa4w"
+    />
+    <link rel="canonical" href="https://specula.info/slack/" />
+    <link rel="icon" href="../assets/favicon.png" type="image/png" />
+    <title>Join Specula on Slack</title>
+    <script>
+      (() => {
+        let savedTheme = null;
+        try {
+          savedTheme = localStorage.getItem("specula-theme");
+        } catch (_) {}
+
+        document.documentElement.dataset.theme =
+          savedTheme === "light" || savedTheme === "dark"
+            ? savedTheme
+            : window.matchMedia?.("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+
+        window.location.replace(
+          "https://join.slack.com/t/agentictla/shared_invite/zt-48n6xr39t-kFPa9_spFJSj6Sf4M4Qa4w",
+        );
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="redirect-page">
+    <main class="slack-redirect">
+      <a class="brand" href="../" aria-label="Specula home">
+        <img src="../assets/specula-wordmark.webp" alt="Specula" width="287" height="127" />
+      </a>
+      <section class="slack-redirect-card" aria-labelledby="slack-title">
+        <img class="slack-redirect-icon" src="../assets/logos/slack.png" width="58" height="58" alt="" />
+        <p class="eyebrow"><span></span> Community</p>
+        <h1 id="slack-title">Join us on Slack</h1>
+        <p>You are being redirected to the Specula community on Slack.</p>
+        <a class="button button-primary" href="https://join.slack.com/t/agentictla/shared_invite/zt-48n6xr39t-kFPa9_spFJSj6Sf4M4Qa4w">
+          Continue to Slack <span aria-hidden="true">→</span>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
